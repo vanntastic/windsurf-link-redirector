@@ -6,13 +6,27 @@ class URLShortener {
         this.copyButton = document.getElementById('copyButton');
         this.urlTableBody = document.getElementById('urlTableBody');
         this.previousUrlsContainer = document.getElementById('previousUrls');
+        this.clearUrlsButton = document.getElementById('clearUrlsButton');
 
         this.generateButton.addEventListener('click', () => this.generateShortURL());
         this.copyButton.addEventListener('click', () => this.copyShortURL());
+        this.clearUrlsButton.addEventListener('click', () => this.clearPreviousUrls());
 
         // Load existing URLs from localStorage
         this.urlMap = JSON.parse(localStorage.getItem('urlMap')) || {};
         this.displayPreviousUrls();
+    }
+
+    clearPreviousUrls() {
+        // Clear the urlMap in localStorage
+        this.urlMap = {};
+        localStorage.removeItem('urlMap');
+
+        // Clear the table body
+        this.urlTableBody.innerHTML = '';
+
+        // Hide the previous URLs container
+        this.previousUrlsContainer.style.display = 'none';
     }
 
     generateShortURL() {
