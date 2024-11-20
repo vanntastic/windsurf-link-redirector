@@ -4,12 +4,15 @@ class URLShortener {
         this.generateButton = document.getElementById('generateButton');
         this.shortUrlOutput = document.getElementById('shortUrlOutput');
         this.copyButton = document.getElementById('copyButton');
+        this.urlList = document.getElementById('urlList');
+        this.previousUrlsContainer = document.getElementById('previousUrls');
 
         this.generateButton.addEventListener('click', () => this.generateShortURL());
         this.copyButton.addEventListener('click', () => this.copyShortURL());
 
         // Load existing URLs from localStorage
         this.urlMap = JSON.parse(localStorage.getItem('urlMap')) || {};
+        this.displayPreviousUrls();
     }
 
     generateShortURL() {
@@ -33,6 +36,25 @@ class URLShortener {
         this.shortUrlOutput.textContent = shortUrl;
         this.copyButton.style.display = 'inline-block';
         this.longUrlInput.value = '';
+
+        // Update the list of previous URLs
+        this.displayPreviousUrls();
+    }
+
+    displayPreviousUrls() {
+        this.urlList.innerHTML = '';
+        const entries = Object.entries(this.urlMap);
+        if (entries.length === 0) {
+            this.previousUrlsContainer.style.display = 'none';
+            return;
+        }
+        this.previousUrlsContainer.style.display = 'block';
+        entries.forEach(([shortCode, longUrl]) => {
+            const listItem = document.createElement('li');
+            const shortUrl = `${window.location.origin}/${shortCode}`;
+            listItem.innerHTML = `<a href="${shortUrl}" target="_blank">${shortUrl}</a> - ${longUrl}`;
+            this.urlList.appendChild(listItem);
+        });
     }
 
     generateShortCode() {
