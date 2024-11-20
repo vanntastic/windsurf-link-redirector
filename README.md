@@ -1,6 +1,8 @@
-# ThisLink.is - URL Shortener
+# A basic URL Shortener app
 
-This is a simple, client-side URL shortener application that uses localStorage for persistence. It allows users to shorten URLs and provides a short URL using the `localhost` domain for testing purposes.
+This whole app was generated using the [windsurf ai ide](https://codeium.com/windsurf), it's currently deployed to netlify at https://magnificent-mermaid-ed0cca.netlify.app/ , this whole app was created within a few hours!
+
+This is a simple, client-side URL shortener application that uses localStorage for persistence. It allows users to shorten URLs and provides a short URL using the `window.location.origin` domain for testing purposes.
 
 ## Features
 - **URL Shortening**: Generate a short URL for any valid long URL.
