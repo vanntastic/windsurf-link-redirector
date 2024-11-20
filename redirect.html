@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const shortCode = window.location.pathname.substring(1);
+            const urlMap = JSON.parse(localStorage.getItem('urlMap')) || {};
+            const longUrl = urlMap[shortCode];
+
+            if (longUrl) {
+                window.location.href = longUrl;
+            } else {
+                document.body.innerHTML = '<h1>Invalid or expired link</h1>';
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+</body>
+</html>

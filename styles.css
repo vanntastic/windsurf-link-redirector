@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f2f5;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.url-shortener {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.result-area {
+    margin-top: 20px;
+}
+
+#shortUrlOutput {
+    word-break: break-all;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+#copyButton {
+    margin-top: 10px;
+    background-color: #2196F3;
+}
+
+#copyButton:hover {
+    background-color: #1976D2;
+}

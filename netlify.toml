@@ -1,0 +1,7 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/:shortCode"
+  to = "/redirect.html"
+  status = 200
